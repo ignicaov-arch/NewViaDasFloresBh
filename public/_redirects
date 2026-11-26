@@ -1,0 +1,6 @@
+# Clean URLs para rotas permanentes (sem catch-all SPA /* /index.html 200)
+/index.html        /              308
+/linkbio.html      /linkbio       308
+/linkbio/index.html /linkbio      308
+/privacidade.html  /privacidade   308
+/termos.html       /termos        308

@@ -1,0 +1,108 @@
+/* Design Tokens · Floricultura Via das Flores BH */
+:root {
+  --marfim: #faf7f3;
+  --papel: #f2eae4;
+  --branco-puro: #ffffff;
+  --tinta: #1d1719;
+  --tinta-suave: #5e5256;
+  --carmim: #d32f58;
+  --carmim-escuro: #a61f43;
+  --folhagem: #1a2e26;
+  --salvia: #5c8273;
+  --roxo-marca: #7a2d87;
+  --ouro-rosa: #e2a7b5;
+  --linha: rgba(29, 23, 25, 0.14);
+  --linha-clara: rgba(250, 247, 243, 0.22);
+
+  --fonte-titulo: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+  --fonte-texto: 'Jost', system-ui, -apple-system, sans-serif;
+
+  --largura: 1320px;
+  --respiro: clamp(4.5rem, 3rem + 5vw, 9.5rem);
+
+  --ease-cinematic: cubic-bezier(0.625, 0.05, 0, 1);
+  --ease-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-cupertino: cubic-bezier(0.22, 1, 0.36, 1);
+  --duracao-rapida: 220ms;
+  --duracao-media: 380ms;
+
+  --raio-card: 24px;
+  --pad-card: 16px;
+  --raio-interno: 12px;
+  --raio-externo: calc(var(--raio-interno) + var(--pad-card));
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scrollbar-width: none;
+  -webkit-text-size-adjust: 100%;
+  overflow-x: hidden;
+}
+
+html::-webkit-scrollbar {
+  display: none;
+}
+
+body {
+  margin: 0;
+  -ms-overflow-style: none;
+  background-color: var(--marfim);
+  color: var(--tinta);
+  font-family: var(--fonte-texto);
+  font-weight: 300;
+  font-size: 17px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: inherit;
+}
+
+h1, h2, h3, p, ul, ol, dl, dd, figure, blockquote {
+  margin: 0;
+}
+
+ul, ol {
+  padding: 0;
+  list-style: none;
+}
+
+button, input, select, textarea {
+  font: inherit;
+  color: inherit;
+}
+
+:focus-visible {
+  outline: 2px solid var(--carmim);
+  outline-offset: 4px;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+[data-motion="reduced"] .obra img,
+[data-motion="reduced"] .hero__foto img {
+  transform: none !important;
+  animation: none !important;
+}

@@ -1,0 +1,50 @@
+name: Quality Gates Determinísticos
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  gates:
+    name: Porteiros (Lint + TSC + Test + Sec + Build)
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout Seguro
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js 20 LTS
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - name: Instalar Dependências Limpas
+        run: npm ci
+
+      - name: Gate 1 - Linting (Zero Warnings)
+        run: npm run lint
+
+      - name: Gate 2 - Typecheck Estrito
+        run: npm run typecheck
+
+      - name: Gate 3 - Testes Reais e Cobertura
+        env:
+          NODE_ENV: test
+        run: npm test
+
+      - name: Gate 4 - Auditoria de CVEs e Segredos
+        run: |
+          if git ls-files --error-unmatch .env .env.local .env.production 2>/dev/null; then
+            echo "ERRO FATAL: Arquivo .env rastreado no Git!"
+            exit 1
+          fi
+          npm audit --omit=dev --audit-level=high
+
+      - name: Gate 6 - Build de Produção
+        run: npm run build
