@@ -231,6 +231,7 @@
 
 /* Endereço + Copiar */
 .bio-endereco {
+  color-scheme: dark;
   margin-top: 20px;
   padding: 20px;
   border-radius: 24px;

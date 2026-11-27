@@ -58,16 +58,17 @@
   justify-content: center;
   gap: 10px;
   min-height: 52px;
-  padding: 14px 32px;
+  padding: 14px 24px;
   border-radius: 999px;
   background-color: var(--carmim-escuro);
   color: var(--branco-puro);
   border: 1px solid var(--carmim-escuro);
   font-size: 0.8125rem;
   font-weight: 500;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   text-decoration: none;
+  white-space: nowrap;
   cursor: pointer;
   transition: background-color var(--duracao-media) var(--ease-cinematic),
     color var(--duracao-media) var(--ease-cinematic),
@@ -147,13 +148,15 @@
   position: fixed;
   inset: 0 0 auto;
   z-index: 50;
-  color: var(--tinta);
+  color: #ffffff;
   transition: background-color var(--duracao-media) var(--ease-cupertino),
+    color var(--duracao-media) var(--ease-cupertino),
     box-shadow var(--duracao-media) var(--ease-cupertino);
 }
 
 .topo.is-rolou {
-  background-color: rgba(250, 247, 243, 0.86);
+  background-color: rgba(250, 247, 243, 0.92);
+  color: var(--tinta);
   backdrop-filter: saturate(180%) blur(20px);
   -webkit-backdrop-filter: saturate(180%) blur(20px);
   box-shadow: 0 1px 0 var(--linha);
@@ -190,6 +193,13 @@
 
 .menu a:hover,
 .menu a[aria-current="page"] {
+  color: #ffd6e0;
+}
+
+.topo.is-rolou .menu a:hover,
+.topo.is-rolou .menu a[aria-current="page"],
+.topo.is-aberto .menu a:hover,
+.topo.is-aberto .menu a[aria-current="page"] {
   color: var(--carmim-escuro);
 }
 
@@ -199,8 +209,8 @@
   justify-content: center;
   padding: 6px 12px;
   border-radius: 999px;
-  background-color: rgba(255, 255, 255, 0.85);
-  box-shadow: 0 2px 12px rgba(29, 23, 25, 0.06);
+  background-color: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 2px 12px rgba(29, 23, 25, 0.12);
   text-decoration: none;
 }
 
@@ -215,7 +225,13 @@
   min-height: 48px;
   padding: 0 22px;
   border-radius: 999px;
-  border: 1px solid var(--tinta);
+  border: 1px solid rgba(255, 255, 255, 0.75);
+  color: #ffffff;
+}
+
+.topo.is-rolou .topo__cta {
+  border-color: var(--tinta);
+  color: var(--tinta);
 }
 
 .topo__cta:hover {
@@ -394,6 +410,7 @@
   }
   .topo.is-aberto {
     background-color: var(--marfim);
+    color: var(--tinta);
   }
   .topo.is-aberto .topo__abrir span:first-child {
     transform: translateY(4px) rotate(45deg);
@@ -408,6 +425,7 @@
     gap: 0;
     padding: 12px 24px 28px;
     background-color: var(--marfim);
+    color: var(--tinta);
     box-shadow: 0 24px 48px rgba(29, 23, 25, 0.14);
     transform: translateY(-12px);
     opacity: 0;

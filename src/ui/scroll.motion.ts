@@ -56,17 +56,16 @@ export function initCinematicScrollMotion(root: HTMLElement = document.body): ()
     root.querySelectorAll<HTMLElement>('.revela').forEach((el, idx) => {
       gsap.fromTo(
         el,
-        { opacity: 0, y: 36 },
+        { y: 24 },
         {
-          opacity: 1,
           y: 0,
-          duration: 0.95,
-          delay: (idx % 3) * 0.06,
+          duration: 0.75,
+          delay: (idx % 3) * 0.05,
           ease: 'power3.out',
           force3D: true,
           scrollTrigger: {
             trigger: el,
-            start: 'top 88%',
+            start: 'top 92%',
             once: true
           }
         }

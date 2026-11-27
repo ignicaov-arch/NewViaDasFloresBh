@@ -1,5 +1,6 @@
 /* Design Tokens · Floricultura Via das Flores BH */
 :root {
+  color-scheme: light;
   --marfim: #faf7f3;
   --papel: #f2eae4;
   --branco-puro: #ffffff;
@@ -13,6 +14,9 @@
   --ouro-rosa: #e2a7b5;
   --linha: rgba(29, 23, 25, 0.14);
   --linha-clara: rgba(250, 247, 243, 0.22);
+  --scrollbar-thumb: #6e5d62;
+  --scrollbar-track: #f2eae4;
+  accent-color: var(--carmim-escuro);
 
   --fonte-titulo: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
   --fonte-texto: 'Jost', system-ui, -apple-system, sans-serif;
@@ -37,18 +41,15 @@
 }
 
 html {
-  scrollbar-width: none;
+  scrollbar-width: auto;
+  scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
+  scrollbar-gutter: stable;
   -webkit-text-size-adjust: 100%;
-  overflow-x: hidden;
-}
-
-html::-webkit-scrollbar {
-  display: none;
+  overflow-x: clip;
 }
 
 body {
   margin: 0;
-  -ms-overflow-style: none;
   background-color: var(--marfim);
   color: var(--tinta);
   font-family: var(--fonte-texto);
@@ -57,7 +58,41 @@ body {
   line-height: 1.7;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  overflow-x: hidden;
+  overflow-x: clip;
+}
+
+.ui-scroll-area {
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-gutter: stable;
+  scrollbar-width: thin;
+  scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
+}
+
+@supports not (scrollbar-color: auto) {
+  html,
+  .ui-scroll-area {
+    scrollbar-width: auto;
+  }
+
+  html::-webkit-scrollbar,
+  .ui-scroll-area::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+
+  html::-webkit-scrollbar-track,
+  .ui-scroll-area::-webkit-scrollbar-track {
+    background: var(--scrollbar-track);
+    border-radius: 9999px;
+  }
+
+  html::-webkit-scrollbar-thumb,
+  .ui-scroll-area::-webkit-scrollbar-thumb {
+    background: var(--scrollbar-thumb);
+    border-radius: 9999px;
+    border: 2px solid var(--scrollbar-track);
+  }
 }
 
 img {

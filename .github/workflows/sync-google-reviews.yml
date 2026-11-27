@@ -1,0 +1,44 @@
+name: Auto Sync Google 5-Star Reviews
+
+on:
+  schedule:
+    - cron: '0 */6 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  sync-reviews:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Sync latest 50 Google reviews and keep latest 20 5-star
+        env:
+          GOOGLE_PLACE_ID: ${{ secrets.GOOGLE_PLACE_ID }}
+          GOOGLE_DATA_ID: ${{ secrets.GOOGLE_DATA_ID || '0xa699d79fed3d6f:0x14049ca474e4ff81' }}
+          GOOGLE_PLACES_API_KEY: ${{ secrets.GOOGLE_PLACES_API_KEY }}
+          SERPAPI_API_KEY: ${{ secrets.SERPAPI_API_KEY }}
+          OUTSCRAPER_API_KEY: ${{ secrets.OUTSCRAPER_API_KEY }}
+          GBP_ACCESS_TOKEN: ${{ secrets.GBP_ACCESS_TOKEN }}
+          GBP_LOCATION_NAME: ${{ secrets.GBP_LOCATION_NAME }}
+          SITE_DOMAIN: 'viadasflores.com.br'
+          SITE_PHONE_DIGITS: '3132201818'
+          SITE_CITY: 'belo horizonte'
+          SITE_NAME_TOKEN: 'via das flores'
+          REVIEWS_OUT_FILE: 'public/data/google-reviews.json'
+          FETCH_LIMIT: '50'
+          DISPLAY_LIMIT: '20'
+        run: npm run sync:reviews
+      - name: Commit updated reviews cache
+        run: |
+          if [ -n "$(git status --porcelain public/data/google-reviews.json)" ]; then
+            git config user.name "github-actions[bot]"
+            git config user.email "github-actions[bot]@users.noreply.github.com"
+            git add public/data/google-reviews.json
+            git commit -m "chore(reviews): auto-sync últimas 50 -> 20 avaliações 5 estrelas do Google"
+            git push
+          fi

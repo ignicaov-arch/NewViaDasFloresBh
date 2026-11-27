@@ -85,8 +85,8 @@
         aria-label="Fazer pedido agora no WhatsApp"
       >
         <span class="btn-rolling__wrap">
-          <span class="btn-rolling__text">Pedir flores pelo WhatsApp</span>
-          <span class="btn-rolling__text is-clone" aria-hidden="true">Pedir flores pelo WhatsApp</span>
+          <span class="btn-rolling__text">Pedir no WhatsApp</span>
+          <span class="btn-rolling__text is-clone" aria-hidden="true">Pedir no WhatsApp</span>
         </span>
       </a>
     </section>
@@ -154,7 +154,7 @@
           </span>
           <span>
             <strong>Avaliações no Google (4,9)</strong>
-            <span>Mais de 1.000 clientes atendidos em BH</span>
+            <span>1.236 avaliações verificadas em BH</span>
           </span>
         </span>
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" style="max-width: 100%; height: auto; display: inline-block;" aria-hidden="true">
@@ -228,6 +228,19 @@
       </div>
     </section>
 
+    <section class="testimonials-section testimonials-section--linkbio revela" aria-label="Avaliações Google no LinkBio" data-google-reviews data-reviews-layout="single" data-max-reviews="20" hidden>
+      <div class="testimonials-linkbio__head">
+        <h2>Clientes 5★ no Google</h2>
+        <span class="testimonials-linkbio__badge" data-reviews-badge>4.9★ · 1.236 avaliações</span>
+      </div>
+      <div class="testimonials-marquee-container marquee-single">
+        <div class="marquee-row marquee-rtl">
+          <div class="marquee-track" data-reviews-row="1"></div>
+        </div>
+      </div>
+      <div class="testimonials-static-grid" data-reviews-static hidden></div>
+    </section>
+
     <section class="bio-endereco revela" aria-label="Endereço e horários">
       <address>Rua da Bahia, 2741, Savassi / Lourdes, Belo Horizonte - MG · CEP 30160-012</address>
       <p class="bio-endereco__horarios">Seg a sex 09h às 21h · Sáb e dom 09h às 14h · Feriados 09h às 12h</p>
@@ -291,6 +304,18 @@
     <button type="button" class="lgpd-btn" id="lgpd-configurar">Configurar</button>
   </div>
 </aside>
+
+<div class="review-lightbox" id="reviewLightbox" role="dialog" aria-modal="true" aria-label="Leitura completa da avaliação" aria-hidden="true">
+  <div class="review-lightbox__backdrop" id="reviewLightboxBackdrop"></div>
+  <div class="review-lightbox__dialog">
+    <button type="button" class="review-lightbox__close" id="reviewLightboxClose" aria-label="Fechar avaliação">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <path vector-effect="non-scaling-stroke" d="M6 6l12 12M18 6L6 18"/>
+      </svg>
+    </button>
+    <div class="review-lightbox__rich ui-scroll-area" id="reviewLightboxRich"></div>
+  </div>
+</div>
 
 <script type="module" src="/src/entries/linkbio.entry.ts"></script>
 </body>

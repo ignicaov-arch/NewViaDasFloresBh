@@ -3,7 +3,7 @@ import globals from 'globals';
 import tseslint from 'typescript-eslint';
 
 export default tseslint.config(
-  { ignores: ['dist/**', 'coverage/**', 'node_modules/**', '.wrangler/**', '.skills-gates/**'] },
+  { ignores: ['dist/**', 'coverage/**', 'node_modules/**', '.wrangler/**', '.skills-gates/**', '.visual-audit/**'] },
   js.configs.recommended,
   ...tseslint.configs.recommended,
   {
@@ -19,6 +19,12 @@ export default tseslint.config(
       '@typescript-eslint/no-explicit-any': 'error',
       '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
       'no-console': ['error', { allow: ['warn', 'error'] }]
+    }
+  },
+  {
+    files: ['scripts/**/*.mjs'],
+    rules: {
+      'no-console': 'off'
     }
   }
 );

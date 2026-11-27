@@ -93,8 +93,8 @@
           "ratingValue": "4.9",
           "bestRating": "5",
           "worstRating": "1",
-          "ratingCount": "1040",
-          "reviewCount": "1040"
+          "ratingCount": "1236",
+          "reviewCount": "1236"
         }
       },
       {
@@ -305,7 +305,7 @@
         <p class="assinatura">Via das Flores BH</p>
         <ul class="sobre__numeros">
           <li><strong class="conta" data-ate="30" data-sufixo="+">30+</strong><span>anos de tradição em BH</span></li>
-          <li><strong class="conta" data-ate="1000" data-sufixo="+">1000+</strong><span>avaliações de clientes</span></li>
+          <li><strong class="conta" data-ate="1236">1236</strong><span>avaliações verificadas</span></li>
           <li><strong class="conta" data-ate="4.9" data-decimais="1">4,9</strong><span>nota média no Google</span></li>
         </ul>
       </div>
@@ -471,23 +471,29 @@
     </div>
   </section>
 
-  <section class="secao" id="depoimentos">
+  <section class="testimonials-section secao" id="depoimentos" aria-labelledby="depoimentos-titulo" data-google-reviews data-reviews-layout="dual" data-max-reviews="20" hidden>
     <div class="wrap">
-      <p class="sobrelinha sobrelinha--centro">Quem já presenteou em BH</p>
-      <div class="depoimentos">
-        <blockquote class="depo depo--grande revela">
-          <p>“Atendimento excelente, muito prestativos e atenciosos. As flores são lindas e de muita qualidade.”</p>
-          <footer>Polyanna Moreira · Belo Horizonte</footer>
-        </blockquote>
-        <blockquote class="depo revela">
-          <p>“Excelente atendimento, entrega rápida e preço justo. Adorei toda a experiência.”</p>
-          <footer>Carolina Bersan · Belo Horizonte</footer>
-        </blockquote>
-        <blockquote class="depo revela">
-          <p>“Entregaram exatamente quando eu queria e o arranjo de orquídeas e lírios estava impecável.”</p>
-          <footer>Patricia Malka · Belo Horizonte</footer>
-        </blockquote>
+      <div class="testimonials-header">
+        <p class="sobrelinha">Avaliações Verificadas em Belo Horizonte</p>
+        <h2 class="titulo-l" id="depoimentos-titulo">Quem já presenteou <em>recomenda</em></h2>
+        <div class="testimonials-meta-row">
+          <span class="testimonials-badge" data-reviews-badge>Avaliações Google · 4.9★ (1.236 no Google)</span>
+          <a class="testimonials-gmn-link" href="https://www.google.com/maps/place/Floricultura+Via+das+Flores/@-19.9390148,-43.9437464,17z/data=!3m1!4b1!4m6!3m5!1s0xa699d79fed3d6f:0x14049ca474e4ff81!8m2!3d-19.9390148!4d-43.9411661!16s%2Fg%2F1wfcqcg9" target="_blank" rel="noopener noreferrer">Ver ficha oficial no Google</a>
+        </div>
       </div>
+    </div>
+
+    <div class="testimonials-marquee-container">
+      <div class="marquee-row marquee-ltr">
+        <div class="marquee-track" data-reviews-row="1"></div>
+      </div>
+      <div class="marquee-row marquee-rtl">
+        <div class="marquee-track" data-reviews-row="2"></div>
+      </div>
+    </div>
+
+    <div class="wrap">
+      <div class="testimonials-static-grid" data-reviews-static hidden></div>
     </div>
   </section>
 
@@ -629,6 +635,18 @@
     <button type="button" class="lgpd-btn" id="lgpd-configurar">Configurar</button>
   </div>
 </aside>
+
+<div class="review-lightbox" id="reviewLightbox" role="dialog" aria-modal="true" aria-label="Leitura completa da avaliação" aria-hidden="true">
+  <div class="review-lightbox__backdrop" id="reviewLightboxBackdrop"></div>
+  <div class="review-lightbox__dialog">
+    <button type="button" class="review-lightbox__close" id="reviewLightboxClose" aria-label="Fechar avaliação">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <path vector-effect="non-scaling-stroke" d="M6 6l12 12M18 6L6 18"/>
+      </svg>
+    </button>
+    <div class="review-lightbox__rich ui-scroll-area" id="reviewLightboxRich"></div>
+  </div>
+</div>
 
 <script type="module" src="/src/entries/home.entry.ts"></script>
 <script type="speculationrules">

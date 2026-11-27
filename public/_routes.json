@@ -1,0 +1,16 @@
+{
+  "version": 1,
+  "include": [
+    "/api/*"
+  ],
+  "exclude": [
+    "/assets/*",
+    "/data/*",
+    "/*.png",
+    "/*.webp",
+    "/robots.txt",
+    "/sitemap.xml",
+    "/llms.txt",
+    "/site.webmanifest"
+  ]
+}

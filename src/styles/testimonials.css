@@ -1,0 +1,332 @@
+/* Scroll Infinito de Avaliações Google 5★ · Site (2 Faixas) e LinkBio (1 Faixa) */
+.testimonials-section {
+  overflow: clip;
+  overflow-x: clip;
+}
+
+.testimonials-section[hidden],
+.testimonials-marquee-container[hidden],
+[data-reviews-static][hidden],
+.marquee-row[hidden] {
+  display: none !important;
+}
+
+.testimonials-header {
+  text-align: center;
+  max-width: 720px;
+  margin-inline: auto;
+  margin-bottom: clamp(28px, 4vw, 48px);
+}
+
+.testimonials-meta-row {
+  margin-top: 18px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 12px 18px;
+}
+
+.testimonials-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 40px;
+  padding: 8px 16px;
+  border-radius: 999px;
+  background-color: var(--papel);
+  border: 1px solid var(--linha);
+  color: var(--tinta);
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.testimonials-gmn-link {
+  font-size: 0.84rem;
+  font-weight: 500;
+  color: var(--carmim-escuro);
+  text-underline-offset: 4px;
+}
+
+.testimonials-marquee-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 1.15rem;
+  width: 100%;
+  overflow: hidden;
+  padding: 0.5rem 0;
+  mask-image: linear-gradient(to right, transparent, #000000 5%, #000000 95%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, #000000 5%, #000000 95%, transparent);
+}
+
+.marquee-single {
+  gap: 0;
+}
+
+.marquee-row {
+  display: flex;
+  width: 100%;
+  overflow: hidden;
+}
+
+.marquee-track {
+  display: flex;
+  gap: 1.15rem;
+  width: max-content;
+  will-change: transform;
+}
+
+@keyframes marquee-ltr {
+  0% { transform: translate3d(-50%, 0, 0); }
+  100% { transform: translate3d(0%, 0, 0); }
+}
+
+@keyframes marquee-rtl {
+  0% { transform: translate3d(0%, 0, 0); }
+  100% { transform: translate3d(-50%, 0, 0); }
+}
+
+.marquee-ltr .marquee-track {
+  animation: marquee-ltr 44s linear infinite;
+}
+
+.marquee-rtl .marquee-track {
+  animation: marquee-rtl 44s linear infinite;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .marquee-row:hover .marquee-track {
+    animation-play-state: paused;
+  }
+}
+
+.review-card {
+  width: 320px;
+  height: 232px;
+  flex: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 18px 20px;
+  border-radius: 20px;
+  background-color: var(--branco-puro);
+  border: 1px solid var(--linha);
+  box-shadow: 0 12px 28px -20px rgba(29, 23, 25, 0.24);
+  color: var(--tinta);
+  cursor: pointer;
+  transition: transform 220ms var(--ease-cupertino), border-color 220ms ease;
+}
+
+.review-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--carmim);
+}
+
+.review-card--compact {
+  width: 264px;
+  height: 188px;
+  padding: 14px 16px;
+  gap: 8px;
+}
+
+.gmaps-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.gmaps-author-wrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+}
+
+.gmaps-avatar,
+.gmaps-avatar-fallback {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  flex: none;
+}
+
+.gmaps-avatar {
+  object-fit: cover;
+  border: 1px solid var(--linha);
+}
+
+.gmaps-avatar-fallback {
+  display: grid;
+  place-items: center;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #ffffff;
+}
+
+.gmaps-author-meta {
+  display: grid;
+  min-width: 0;
+}
+
+.gmaps-author-name {
+  font-size: 0.92rem;
+  font-weight: 500;
+  color: var(--tinta);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.gmaps-author-sub {
+  font-size: 0.74rem;
+  color: var(--tinta-suave);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.gmaps-rating-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.gmaps-stars {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.gmaps-time {
+  font-size: 0.76rem;
+  color: var(--tinta-suave);
+}
+
+.gmaps-text {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: #342b2e;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.review-card--compact .gmaps-text {
+  font-size: 0.84rem;
+  -webkit-line-clamp: 3;
+}
+
+.testimonials-static-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 16px;
+}
+
+.testimonials-static-grid .review-card {
+  width: 100%;
+  height: auto;
+  min-height: 204px;
+}
+
+.testimonials-section--linkbio {
+  margin-top: 24px;
+  padding: 20px 0 18px;
+  border-radius: 28px;
+  background-color: var(--branco-puro);
+  border: 1px solid var(--linha);
+}
+
+.testimonials-linkbio__head {
+  padding: 0 20px 10px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.testimonials-linkbio__head h2 {
+  font-family: var(--fonte-titulo);
+  font-size: 1.55rem;
+  font-weight: 400;
+  color: var(--tinta);
+}
+
+.testimonials-linkbio__badge {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--carmim-escuro);
+}
+
+.review-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.review-lightbox.active {
+  display: flex;
+}
+
+.review-lightbox__backdrop {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(18, 13, 15, 0.72);
+  backdrop-filter: blur(8px);
+}
+
+.review-lightbox__dialog {
+  position: relative;
+  z-index: 1;
+  width: min(100%, 520px);
+  max-height: min(82vh, 560px);
+  padding: 28px 24px 24px;
+  border-radius: 24px;
+  background-color: var(--branco-puro);
+  color: var(--tinta);
+  border: 1px solid var(--linha);
+  box-shadow: 0 28px 64px -20px rgba(0, 0, 0, 0.45);
+}
+
+.review-lightbox__close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid var(--linha);
+  background-color: var(--papel);
+  color: var(--tinta);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.review-lightbox__rich {
+  display: grid;
+  gap: 10px;
+  max-height: 62vh;
+  padding-right: 12px;
+}
+
+.review-lightbox__rich strong {
+  font-family: var(--fonte-titulo);
+  font-size: 1.65rem;
+  font-weight: 500;
+  line-height: 1.15;
+}
+
+.review-lightbox__rich p {
+  font-size: 1rem;
+  line-height: 1.65;
+  color: #342b2e;
+}

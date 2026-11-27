@@ -8,5 +8,6 @@ coverage/
 !.env.example
 .skills-gates/
 .temp_*/
+.visual-audit/
 *.log
 scratch/
